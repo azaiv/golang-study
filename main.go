@@ -17,3 +17,7 @@ func main() {
 	IMT := userWidth * math.Pow(userHeight, IMTPower)
 	fmt.Println(IMT)
 }
+
+func secondary(userHeight float64, userSize int) {
+	
+}
