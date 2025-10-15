@@ -1,12 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+),
+	"errors"
+)
 
 func main() {
 	createValuable()
 	withArgs(10, 10)
 	testString := withArgsAndOutput(10, 20)
 	fmt.Println(withArgsAndOutputs(testString, 20))
+	flowControl()
+	flowSwitchControl("test1")
+	cycles()
+	prepareError()
 }
 
 // Создание переменных
@@ -32,6 +41,50 @@ func withArgsAndOutput(arg1 float64, arg2 float64) string {
 }
 
 // Функция с аргументом и с двумя выходными параметрами
-func withArgsAndOutputs(arg1 string, arg2 float64) (string, string) {
+func withArgsAndOutputs(arg1 string, arg2 float64) (test string, test2 string) {
 	return arg1, fmt.Sprint(arg2)
+}
+
+// Оператор if
+func flowControl() bool {
+	const success = true
+	if success {
+		return !success
+	} else {
+		return success
+	}
+}
+
+// Конструкция switch
+func flowSwitchControl(test string) string {
+	switch {
+	case test == "test1":
+		return "test2"
+	case test == "test2":
+		return "test3"
+	case test == "test3":
+		return "test4"
+	default:
+		return test
+	}
+}
+
+// Циклы
+func cycles() {
+	for i := 0; i < 10; i++ {
+	}
+	i := 0
+	for i < 10 {
+		i++
+	}
+}
+
+// Обработка ошибок
+func prepareError() (float64, error) {
+	const success = true
+	if success {
+		return 0, errors.New("test error")
+	} else {
+		return 0, nil
+	}
 }
